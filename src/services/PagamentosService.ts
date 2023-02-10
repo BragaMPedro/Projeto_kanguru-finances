@@ -25,17 +25,17 @@ export interface PostPagamentoProps {
 }
 
 export const getTodosPagamentos = () => {
-   return kanguruApi.get("/Pagamento")
+   return kanguruApi.get("/classes/Pagamento")
 }
 
 export const getPagamentoPorId = (id: string) => {
-   return kanguruApi.get("/Pagamento", { params: { 'where': { 'objectId': id } } })
+   return kanguruApi.get("/classes/Pagamento", { params: { 'where': { 'objectId': id } } })
 }
 
 export const getPagamentoPorTitulo = (titulo: string) => {
-   return kanguruApi.get("/Pagamento", { params: { 'where': { 'titulo': titulo } } })
+   return kanguruApi.get("/classes/Pagamento", { params: { 'where': { 'titulo': titulo } } })
 }
 
 export const postPagamento = (pagamento: PostPagamentoProps) => {
-   return kanguruApi.post("/Pagamento", pagamento)
+   return kanguruApi.post("/classes/Pagamento", pagamento)
 }
