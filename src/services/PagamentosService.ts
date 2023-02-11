@@ -7,7 +7,7 @@ export interface PagamentoProps {
    titulo: string
    vencimento: string //Date
    pago: boolean
-   débitoAutomatico: boolean
+   debitoAutomatico: boolean
    dataPagamento?: string //Date
    recorrente?: boolean
    categoria?: "Moradia" | "Restaurante" | "Compras" | "Mercado" | "Outros"
@@ -19,7 +19,7 @@ export interface PostPagamentoProps {
    vencimento: string //Date
    pago: boolean
    recorrente?: boolean
-   débitoAutomatico?: boolean
+   debitoAutomatico?: boolean
    dataPagamento?: string //Date
    categoria?: "Moradia" | "Restaurante" | "Compras" | "Mercado" | "Outros"
 }
