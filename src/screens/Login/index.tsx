@@ -1,19 +1,30 @@
 import React, { useState } from "react"
-import { View, Text, TouchableOpacity } from "react-native"
+import { View, Text, TouchableOpacity, ActivityIndicator, Image } from "react-native"
 import { AuthTextInput } from "../../components/AuthTextInput/AuthTextInput"
+import { FunctionsLogin } from "./functions"
+
+import { Kanguru } from '../../assets/logo/pngwing.com.png'
 import { styles } from "./styles"
 
-import { FunctionsLogin } from "./functions"
 
 export const LoginScreen = () => {
    const [username, setUsername] = useState<string>('')
    const [password, setPassword] = useState<string>('')
-   const { fazerLogin } = FunctionsLogin()
+   const [carregando, setCarregando] = useState<boolean>(false)
+   const { fazerLogin } = FunctionsLogin({ carregando, setCarregando })
+
+   let disabled = (username && password) === '' || carregando
 
    return (
       <View style={styles.container}>
          <View style={styles.header}>
-            <Text style={styles.title}>Login</Text>
+            <Image
+               source={Kanguru}
+               resizeMode="contain"
+               style={styles.logo}
+               accessibilityRole="image"
+               accessibilityLabel="Logo Kanguru Finances"
+            />
          </View>
 
          <View style={styles.content}>
@@ -23,9 +34,13 @@ export const LoginScreen = () => {
             <Text style={styles.labelAux}>Esqueci a Senha</Text>
          </View>
 
-         <TouchableOpacity style={styles.buttonLogin} onPress={() => fazerLogin(username, password)}>
-            <Text style={styles.title}>Login</Text>
-         </TouchableOpacity>
+         <View style={styles.buttonContainer}>
+            <TouchableOpacity disabled={disabled} style={disabled ? styles.buttonDisabled : styles.buttonLogin} onPress={() => fazerLogin(username, password)}>
+               {carregando ?
+                  <ActivityIndicator color="#fa7828" />
+                  : <Text style={styles.title}>Login</Text>}
+            </TouchableOpacity>
+         </View>
       </View>
    )
 }

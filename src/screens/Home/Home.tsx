@@ -10,9 +10,9 @@ export const Home = () => {
  
    const { pegarPagamentos, } = FunctionsHome({pagamentoArray, setPagamentoArray})
 
-   useEffect(()=>{
-      pegarPagamentos()
-   },[])
+   // useEffect(()=>{
+   //    pegarPagamentos()
+   // },[])
 
    return (
       <View style={styles.container}>

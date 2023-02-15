@@ -32,7 +32,7 @@ export const AuthTextInput = ({ label, placeholder, type, value, setValue }: Aut
                   placeholder={placeholder}
                   placeholderTextColor="#595f70"
                />
-               <TouchableOpacity activeOpacity={0.8} onPress={() => setPasswordVisibility(visibility => !visibility)}>
+               <TouchableOpacity activeOpacity={0.8} style={{width: 40, height: 40, alignContent: "center", justifyContent: "center"}} onPress={() => setPasswordVisibility(visibility => !visibility)}>
                   {passwordVisibility ? (
                      <MaterialIcons name="visibility" style={styles.passwordIcon} />
                   ) : (

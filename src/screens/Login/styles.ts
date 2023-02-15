@@ -2,22 +2,23 @@ import { Platform, StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     container: {
-        flex:1,
+        flex: 1,
         alignItems: "center",
         paddingTop: Platform.OS === "ios" ? 64 : 40,
-        paddingHorizontal: 30,
+        paddingHorizontal: 40,
         backgroundColor: '#1B1D2A',
         color: "#cfd0d5",
     },
 
     header: {
-        felx: 1,
-        flexDirection: "row",
+        flex: 0.5,
         alignItems: "center",
-        justifyContent: "flex-start",
+        justifyContent: "center",
         marginBottom: 60,
-        height: 30,
-        width: 350,
+    },
+    logo: {
+        width: 160,
+        height: 160,
     },
 
     title: {
@@ -28,8 +29,8 @@ export const styles = StyleSheet.create({
     },
 
     content: {
-        height: 275,
-        width: "100%",
+        flex: 1,
+        flexDirection: 'column'
     },
 
     label: {
@@ -39,12 +40,12 @@ export const styles = StyleSheet.create({
         color: "#cfd0d5",
     },
 
-    inputBox:{
+    inputBox: {
         marginVertical: 22.5,
         borderBottomWidth: 2,
         borderBottomColor: "#242834",
     },
-    input:{
+    input: {
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
@@ -59,12 +60,12 @@ export const styles = StyleSheet.create({
     },
     passwordIcon: {
         color: "#cfd0d5",
-        fontSize: 16,
+        fontSize: 20,
     },
-    inputFocus:{
+    inputFocus: {
         marginVertical: 22.5,
         borderBottomWidth: 2,
-        borderBottomColor: "#5f81fc",
+        borderBottomColor: "#fa7828",
     },
 
     labelAux: {
@@ -74,7 +75,25 @@ export const styles = StyleSheet.create({
         color: "#cfd0d5",
     },
 
-    buttonLogin:{
+    buttonContainer: {
+        flex: 1,
+        justifyContent: "center",
+        alignContent: 'center',
+        zIndex: 0,
+    },
+    buttonLogin: {
+        alignItems: "center",
+        width: 280,
+        paddingVertical: 15,
+        borderRadius: 50,
+        backgroundColor: "#fa7828",
+        color: "#cfd0d5",
+        textAlign: "center",
+        fontSize: 16,
+        fontWeight: "bold",
+    },
+
+    buttonDisabled: {
         alignItems: "center",
         width: 280,
         paddingVertical: 15,
@@ -84,6 +103,6 @@ export const styles = StyleSheet.create({
         textAlign: "center",
         fontSize: 16,
         fontWeight: "bold",
-    }
+    },
 
 })

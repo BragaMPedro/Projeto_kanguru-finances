@@ -10,7 +10,7 @@ import { Home } from "../Home/Home"
 import { biometriaProps, FunctionsAutenticarUsuario } from "./functions"
 import { styles } from "./styles"
 
-type AuthScreenProp = NativeStackNavigationProp<RootStackParamList, "Login">
+type AuthScreenProp = NativeStackNavigationProp<RootStackParamList, "LoginScreen">
 
 export const Login = () => {
    const [biometria, setBiometria] = useState<biometriaProps | undefined>()
