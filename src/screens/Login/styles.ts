@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
         flex: 0.5,
         alignItems: "center",
         justifyContent: "center",
-        marginBottom: 60,
+        marginTop: 60,
     },
     logo: {
         width: 160,

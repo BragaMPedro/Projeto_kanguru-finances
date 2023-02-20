@@ -19,25 +19,27 @@ export const FunctionsLogin = ({ carregando, setCarregando }: FunctionsLoginProp
    const navigation = useNavigation<AuthScreenProp>()
    const [usuarioAutenticado, setUsuarioAutenticado] = useState<boolean>(false)
 
-   function showToastie(error: any) {
-      error.status === 404 && ToastAndroid.showWithGravity("Usuário ou senha inválido", 6000, ToastAndroid.TOP)
+   function showToastie(error: number) {
+      error === 404 && ToastAndroid.showWithGravity("Usuário ou senha inválido", 6000, ToastAndroid.TOP)
    }
 
    async function fazerLogin(username: string, password: string) {
       setCarregando(true)
 
-      try {
-         let res = await logIn(username, password)
-         setUsuarioAutenticado(true);
-         AsyncStorage.setItem("@user", JSON.stringify(res.data));
+      logIn(username, password)
+         .then(res => {
+            setUsuarioAutenticado(true)
+            AsyncStorage.setItem("@user", JSON.stringify(res.data))
 
-         navigation.navigate("Home");
-      } catch (error) {
-         console.log(error)
-         showToastie(error)
-      } finally {
-         setCarregando(false)
-        } 
+            navigation.navigate("Home")
+         })
+         .catch(error => {
+            console.log(error)
+            showToastie(error.response.status)
+         })
+         .finally(() => {
+            setCarregando(false)
+         })
    }
 
    return {

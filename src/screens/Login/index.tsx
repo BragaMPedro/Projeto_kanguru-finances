@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, ActivityIndicator, Image } from "react-na
 import { AuthTextInput } from "../../components/AuthTextInput/AuthTextInput"
 import { FunctionsLogin } from "./functions"
 
-import { Kanguru } from '../../assets/logo/pngwing.com.png'
+import { Kanguru } from '../../assets/logo/kangulogo.png'
 import { styles } from "./styles"
 
 
